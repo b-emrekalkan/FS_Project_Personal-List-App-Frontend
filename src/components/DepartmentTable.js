@@ -20,7 +20,7 @@ export default function DepartmentTable() {
     const {myKey} = React.useContext(AuthContext)
     const navigate = useNavigate()
     const [data,setData] = React.useState()
-    
+
     const getDeparments= async (str) =>{
       try {
           const res = await axios.get(`http://127.0.0.1:8000/api/`,{headers:{'Authorization':`Token ${myKey}`}})
@@ -36,7 +36,7 @@ export default function DepartmentTable() {
       if(myKey){
         getDeparments()
       }
-    },[])
+    },[myKey])
 
     const handleClick=(deparment)=>{
         navigate(`/detail/${deparment}`)

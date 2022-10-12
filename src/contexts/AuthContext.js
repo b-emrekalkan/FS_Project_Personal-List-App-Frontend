@@ -51,6 +51,7 @@ const AuthContextProvider= (props) => {
         sessionStorage.setItem('username', res.data.userName)
         const myToken = window.btoa(res.data.key)
         sessionStorage.setItem('token', myToken)
+        sessionStorage.setItem('is_staff', res.data.user.is_staff)
         toastSuccessNotify('User login successfully.')
         navigate("/home")
       }
