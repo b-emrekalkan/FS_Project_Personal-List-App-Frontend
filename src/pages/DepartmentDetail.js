@@ -25,7 +25,7 @@ export default function DeparmentDetail() {
     const {myKey}= React.useContext(AuthContext)
     const isStaff=sessionStorage.getItem("is_staff") || false
     const [data,setData] = React.useState()
-    const [deparmentId,setId] = React.useState()
+    const [departmentId,setId] = React.useState()
     const navigate = useNavigate()
     const getDepartments= async () =>{
         try {
@@ -57,7 +57,7 @@ export default function DeparmentDetail() {
 
     }
     const handleClick = ()=>{
-      navigate("/create-personal",{state:{deparmentId}})
+      navigate("/create-personal",{state:{departmentId}})
     }
 
   return (

@@ -25,7 +25,8 @@ const theme = createTheme();
 
 export default function PersonalCreate() {
   const navigate = useNavigate()
-
+  const location = useLocation()
+  const {departmentId} = location.state
   const [firstName,setFirstName] = React.useState("")
   const [lastName,setLastName] = React.useState("")
   const [isStaffed,setIsStaffed] = React.useState(false)
@@ -49,7 +50,7 @@ export default function PersonalCreate() {
           md={7}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          
+
             <Box
             sx={{
               my: 8,
@@ -64,7 +65,7 @@ export default function PersonalCreate() {
             </Avatar>
             <Typography component="h1" variant="h5">
               PersonalCreate
-            </Typography> 
+            </Typography>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }} component={"form"} onSubmit={handleSubmit} >
         <FormControl >
           <InputLabel id="title-select-label">Title</InputLabel>
@@ -136,7 +137,7 @@ export default function PersonalCreate() {
           </Button>
         </Box>
         </Box>
-            
+
         </Grid>
       </Grid>
     </ThemeProvider>
