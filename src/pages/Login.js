@@ -41,7 +41,7 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    signIn(email,password,userName)
+    signIn(email,password,userName, navigate)
   };
   
 

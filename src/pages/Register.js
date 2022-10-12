@@ -56,12 +56,12 @@ export default function Register() {
           firstName: Yup.string().required("Name is required"),
           lastName: Yup.string().required("Name is required"),
           email: Yup.string().email("Email is invalid").required("Email is required"),
-          password: Yup.string().min(8,"Şifre en az 8 karakter olmalıdır").max(12).matches(/\d+/,"Şifre en az bir sayı içermelidir").matches(/[a-z]+/,"Şifre en az bir küçük harf içermelidir.").matches(/[A-Z]+/,"Şifre en az bir büyük harf içermelidir.").matches(/[!,?{}><%&$#£+-.]+/, 'Sifreniz ozel karakterlerden (!,?{}><%&$#£+-.) en az birini icermelidir.').required("Şifre gereklidir")
+          password: Yup.string().min(8,"Password must be at least 8 characters").max(12).matches(/\d+/,"Password must contain at least one number").matches(/[a-z]+/,"Password must contain at least one lowercase letter.").matches(/[A-Z]+/,"Password must contain at least one uppercase letter.").matches(/[!,?{}><%&$#£+-.]+/, 'Your password must contain at least one of the special characters (!,?{}><%&$#£+-.).').required("Password is required")
         })}
         onSubmit={(values,actions)=>{
           actions.resetForm()
           actions.setSubmitting(false)
-          createUser(values.email,values.password,values.firstName,values.lastName,values.userName)
+          createUser(values.email,values.password,values.firstName,values.lastName,values.userName, navigate)
         }}
         >
           {({values,handleChange,errors,touched,handleBlur})=>(

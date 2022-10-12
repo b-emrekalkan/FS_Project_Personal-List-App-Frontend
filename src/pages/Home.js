@@ -5,7 +5,7 @@ const Home = () => {
 
   return (
     <div >
-      <h1>Welcome to Clarusway Personal List App</h1>
+      <h1>Welcome to IT Personal List App</h1>
       <DeparmentTable />
     </div>
   )
