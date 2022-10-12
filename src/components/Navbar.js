@@ -12,7 +12,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 export default function NavBar() {
   const {currentUser,logOut} = React.useContext(AuthContext);
-
+    
   const navigate = useNavigate()
   // const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,14 +28,14 @@ export default function NavBar() {
       navigate('/register')
     }else if (e.target.innerText === 'Logout'){
       logOut(navigate)
-
+      
     }
 
   };
 
   return (
     <Box sx={{marginBottom:"0px"}} >
-
+     
       <AppBar position="static" style={{cursor:"pointer"}} sx={{backgroundColor:"tomato"}}>
         <Toolbar>
             <Typography variant="h6" color="inherit" sx={{ flexGrow: 3,textAlign:"left"}} style={{marginLeft:"0px"}} onClick={()=>navigate("/home")} >
@@ -48,7 +48,7 @@ export default function NavBar() {
           (<Typography variant="h6" component="div" sx={{ flexGrow: 1,textAlign:"end",paddingRight:"1rem" }}>
           Guest
         </Typography>)}
-
+          
         <div>
               <IconButton
                 size="large"
@@ -66,7 +66,7 @@ export default function NavBar() {
                 {currentUser ? currentUser[0].toUpperCase():<AccountCircle sx={{fontSize:55,width:"8vh",height:"8vh",color: "tomato"}}/> }
               </IconButton>
               {currentUser ? (<Menu
-
+              
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
@@ -82,7 +82,7 @@ export default function NavBar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={(e)=>handleClose(e)}>Logout</MenuItem>
-
+                
               </Menu>):(<Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
@@ -104,7 +104,7 @@ export default function NavBar() {
                 <MenuItem onClick={(e)=>handleClose(e)}>Sign Up</MenuItem>
               </Menu>)}
             </div>
-
+          
         </Toolbar>
       </AppBar>
     </Box>
